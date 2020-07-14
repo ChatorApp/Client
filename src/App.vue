@@ -1,8 +1,8 @@
 <template>
     <v-app>
-      <LeftBar></LeftBar>
+      <LeftBar v-if="loggedIn"></LeftBar>
 
-      <v-app-bar app>
+      <v-app-bar app v-if="loggedIn">
         <!-- -->
       </v-app-bar>
 
@@ -10,14 +10,13 @@
       <v-main>
 
         <!-- Provides the application the proper gutter -->
-        <v-container fluid>
-
+        <v-container :class="loggedIn ? '' : 'fill-height'" fluid>
           <!-- If using vue-router -->
           <router-view></router-view>
         </v-container>
       </v-main>
 
-      <RightBar></RightBar>
+      <RightBar v-if="loggedIn"></RightBar>
     </v-app>
 </template>
 
@@ -25,11 +24,31 @@
 import LeftBar from './components/layout/LeftBar.vue';
 import RightBar from './components/layout/RightBar.vue';
 
+import api from './utils/api';
+
 export default {
   name: 'App',
   components: {
     LeftBar,
     RightBar,
+  },
+  data() {
+    return {
+      loggedIn: false,
+    };
+  },
+  async mounted() {
+    await this.verify();
+  },
+  methods: {
+    async verify() {
+      try {
+        const verifyRequest = await api.get('/auth/verify');
+        this.loggedIn = verifyRequest.data.loggedIn;
+      } catch (e) {
+        this.loggedIn = false;
+      }
+    },
   },
 };
 </script>

@@ -9,6 +9,14 @@ require('dotenv').config();
 
 Vue.config.productionTip = false;
 
+Vue.mixin({
+  data() {
+    return {
+      apiUrl: 'http://localhost:3000/api',
+    };
+  },
+});
+
 new Vue({
   router,
   vuetify,
