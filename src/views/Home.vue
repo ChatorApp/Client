@@ -1,10 +1,6 @@
 <template>
   <v-container>
     <SocketIoChat></SocketIoChat>
-    <v-form @submit.prevent="submit">
-      <v-file-input v-model="file"></v-file-input>
-      <v-btn type="submit"></v-btn>
-    </v-form>
   </v-container>
 </template>
 
