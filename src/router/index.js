@@ -27,12 +27,14 @@ router.beforeEach(async (to, from, next) => {
   if (to.name !== 'Login') {
     if (!localStorage.getItem('api_key')) next({ name: 'Login' });
     else {
-      await api.get('/auth/verify').then(() => {
-        next();
-      })
-        .catch(() => {
-          next({ name: 'Login' });
-        });
+      try {
+        const response = await api.get('/auth/verify');
+        if (response.data.loggedIn) next();
+        else next({ name: 'Login' });
+      } catch (e) {
+        localStorage.removeItem('api_key');
+        next({ name: 'Login' });
+      }
     }
   } else next();
 });
