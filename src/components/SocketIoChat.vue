@@ -10,8 +10,8 @@
           <div class="card-body">
             <div class="messages" v-for="(msg, index) in messages" :key="index">
               <p>
-                <span class="font-weight-bold">{{ msg.user }}:</span>
-                {{ msg.message }}
+                <span class="font-weight-bold">{{ msg.user.name }} ({{ msg.user.id }}):</span>
+                {{ msg.message.content }} @ {{ msg.message.timestamp }}
               </p>
             </div>
           </div>
@@ -51,16 +51,14 @@ export default {
     sendMessage(e) {
       e.preventDefault();
       this.socket.emit('SEND_MESSAGE', {
-        user: this.user,
+        jwt_token: JSON.parse(localStorage.getItem('api_key')).key,
         message: this.message,
       });
       this.message = '';
     },
   },
   mounted() {
-    this.socket.on('MESSAGE', (data) => {
-      this.messages.push(data);
-    });
+    this.socket.on('MESSAGE', (data) => this.messages.push(data));
   },
 };
 </script>
