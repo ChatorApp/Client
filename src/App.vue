@@ -1,36 +1,33 @@
 <template>
-    <v-app>
-      <LeftBar v-if="loggedIn"></LeftBar>
-
-      <v-app-bar app v-if="loggedIn">
-        <!-- -->
-      </v-app-bar>
-
-      <!-- Sizes your content based upon application components -->
-      <v-main>
-
-        <!-- Provides the application the proper gutter -->
-        <v-container :class="loggedIn ? '' : 'fill-height'" fluid>
-          <!-- If using vue-router -->
-          <router-view></router-view>
-        </v-container>
-      </v-main>
-
-      <RightBar v-if="loggedIn"></RightBar>
-    </v-app>
+  <v-app>
+    <v-row no-gutters>
+      <ServerBar></ServerBar>
+      <ChannelPanel></ChannelPanel>
+      <v-col>
+        <v-main>
+          <v-container :class="loggedIn ? '' : 'fill-height'" fluid>
+            <router-view></router-view>
+          </v-container>
+        </v-main>
+      </v-col>
+      <UserListPanel :loggedIn="this.loggedIn"></UserListPanel>
+    </v-row>
+  </v-app>
 </template>
 
 <script>
-import LeftBar from './components/layout/LeftBar.vue';
-import RightBar from './components/layout/RightBar.vue';
+import ServerBar from './components/layout/ServerBar.vue';
+import ChannelPanel from './components/layout/ChannelPanel.vue';
+import UserListPanel from './components/layout/UserListPanel.vue';
 
 import api from './utils/api';
 
 export default {
   name: 'App',
   components: {
-    LeftBar,
-    RightBar,
+    ServerBar,
+    ChannelPanel,
+    UserListPanel,
   },
   data() {
     return {
@@ -55,13 +52,12 @@ export default {
 
 <style scoped>
 .theme--dark.v-application {
-  background-color: var(--v-background-base)
+  background-color: var(--v-background-base);
 }
 .theme--dark.v-app-bar.v-toolbar.v-sheet {
-  background-color: var(--v-background-darken1)
+  background-color: var(--v-background-darken1);
 }
-.theme--dark.v-navigation-drawer{
-  background-color: var(--v-background-darken1)
+.theme--dark.v-navigation-drawer {
+  background-color: var(--v-background-darken1);
 }
-
 </style>
