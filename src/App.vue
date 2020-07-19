@@ -1,8 +1,8 @@
 <template>
   <v-app>
     <v-row no-gutters>
-      <ServerBar></ServerBar>
-      <ChannelPanel></ChannelPanel>
+      <ServerBar v-if="loggedIn"></ServerBar>
+      <ChannelPanel v-if="loggedIn"></ChannelPanel>
       <v-col>
         <v-main>
           <v-container :class="loggedIn ? '' : 'fill-height'" fluid>
@@ -10,7 +10,7 @@
           </v-container>
         </v-main>
       </v-col>
-      <UserListPanel :loggedIn="this.loggedIn"></UserListPanel>
+      <UserListPanel v-if="loggedIn"></UserListPanel>
     </v-row>
   </v-app>
 </template>
