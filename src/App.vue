@@ -60,4 +60,7 @@ export default {
 .theme--dark.v-navigation-drawer {
   background-color: var(--v-background-darken1);
 }
+.fill-height {
+  height: 50vw;
+}
 </style>
