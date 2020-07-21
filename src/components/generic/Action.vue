@@ -1,8 +1,10 @@
 <template>
-  <div class="action">
-    <p class="text-center">{{ Title }}</p>
+  <div class="action" @click="$emit('actionClicked')">
+    <p class="text-center">
+      <strong>{{ Title }}</strong>
+    </p>
     <div :style="actionIconStyle"></div>
-    <v-btn :to="ButtonUrl">{{ ButtonText }}</v-btn>
+    <v-btn>{{ ButtonText }}</v-btn>
   </div>
 </template>
 
@@ -13,16 +15,17 @@ export default {
     Title: String,
     Icon: String,
     ButtonText: String,
-    ButtonUrl: String,
   },
   computed: {
     actionIconStyle() {
       return {
-        width: '100%',
-        margin: '26px 0',
+        'background-image': `url(/assets/${this.Icon}.svg`,
         'background-position': '50%',
         'background-repeat': 'no-repeat',
-        'background-image': `url(/assets/${this.Icon}`,
+        'background-size': '90% 90%',
+        height: '78px',
+        margin: '26px 0',
+        width: '100%',
       };
     },
   },
@@ -31,12 +34,13 @@ export default {
 
 <style scoped>
 .action {
-    width: 228px;
-    max-width: 228px;
-    text-align: center;
-    padding: 16px;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid;
+  width: 100%;
+  max-width: 228px;
+  text-align: center;
+  padding: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid;
+  border-radius: 7.5px;
 }
 </style>
