@@ -1,6 +1,14 @@
 <template>
   <v-col class="serverBar">
     <v-list class="serverBar">
+      <v-list-item to="/dms">
+        <v-list-item-avatar>
+          <v-avatar color="indigo" style="min-width: 0px;">
+            <v-icon>mdi-forum</v-icon>
+          </v-avatar>
+        </v-list-item-avatar>
+      </v-list-item>
+      <v-divider></v-divider>
       <v-list-item v-for="server in servers" :key="server.id" :to="`/servers/${server.id}`">
         <v-list-item-avatar>
           <img :src="server.icon" />
