@@ -17,6 +17,11 @@
           <h3 class="text-center">
             Create a community for family, friends, co workers or the public!
           </h3>
+          <v-row v-if="alert.message !== null">
+            <v-col cols="12" sm="12" align="center">
+              <v-alert :type="alert.type">{{ alert.message }}</v-alert>
+            </v-col>
+          </v-row>
           <v-form @submit.prevent="submit">
             <v-row>
               <v-col cols="12" sm="6" align="center" justify="center">
@@ -43,7 +48,7 @@
                   required
                   :rules="rules.icon"
                 ></v-file-input>
-                <v-btn>Create Server</v-btn>
+                <v-btn type="submit">Create Server</v-btn>
               </v-col>
             </v-row>
           </v-form>
@@ -64,6 +69,10 @@ export default {
   },
   data() {
     return {
+      alert: {
+        type: null,
+        message: null,
+      },
       dialog: false,
       formData: {
         serverName: '',
@@ -89,7 +98,14 @@ export default {
       fd.append('upload', this.formData.icon);
       fd.append('name', this.formData.serverName);
       fd.append('description', this.formData.serverDescription);
-      await api.postFile('/servers/create', fd);
+      try {
+        const { data } = await api.postFile('/servers/create', fd);
+        this.alert.message = data.message;
+        this.alert.type = 'success';
+      } catch (e) {
+        this.alert.message = 'There was an error whilst creating the server';
+        this.alert.type = 'error';
+      }
     },
   },
 };
