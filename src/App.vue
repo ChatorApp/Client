@@ -3,13 +3,13 @@
     <v-row no-gutters>
       <ServerBar v-if="loggedIn"></ServerBar>
       <ChannelPanel v-if="loggedIn"></ChannelPanel>
-      <v-col>
-        <v-main>
-          <v-container :class="loggedIn ? '' : 'fill-height'" fluid>
+      <v-main>
+        <v-container :class="loggedIn ? '' : 'fill-height'" fluid>
+          <v-col>
             <router-view></router-view>
-          </v-container>
-        </v-main>
-      </v-col>
+          </v-col>
+        </v-container>
+      </v-main>
       <UserListPanel v-if="loggedIn"></UserListPanel>
     </v-row>
   </v-app>
