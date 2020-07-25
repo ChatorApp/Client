@@ -1,34 +1,36 @@
 <template>
-  <v-col class="serverBar">
-    <v-list class="serverBar">
-      <v-list-item to="/dms">
-        <v-list-item-avatar>
-          <v-avatar color="indigo" style="min-width: 0px;">
-            <v-icon>mdi-forum</v-icon>
-          </v-avatar>
-        </v-list-item-avatar>
-      </v-list-item>
+    <v-col class="serverBar">
+  <vuescroll>
+      <ServerIcon
+        :to="`/dms`"
+        icon="mdi-forum"
+        backgroundColor="indigo"
+      ></ServerIcon>
+      <ServerIcon
+        v-for="server in servers"
+        :key="server.id"
+        :to="`/servers/${server.id}`"
+        :image="server.icon"
+      ></ServerIcon>
       <v-divider></v-divider>
-      <v-list-item v-for="server in servers" :key="server.id" :to="`/servers/${server.id}`">
-        <v-list-item-avatar>
-          <img :src="server.icon" />
-        </v-list-item-avatar>
-      </v-list-item>
-      <v-divider></v-divider>
-      <CreateJoinModal></CreateJoinModal>
-    </v-list>
-  </v-col>
+      <CreateJoinDialog></CreateJoinDialog>
+  </vuescroll>
+    </v-col>
 </template>
 
 <script>
-import CreateJoinModal from '../servers/CreateJoinModal.vue';
+import vuescroll from 'vuescroll';
+import ServerIcon from '@/components/generic/ServerIcon.vue';
+import CreateJoinDialog from '../servers/dialogs/CreateJoinDialog.vue';
 
 const api = require('@/utils/api');
 
 export default {
   name: 'ServerBar',
   components: {
-    CreateJoinModal,
+    CreateJoinDialog,
+    ServerIcon,
+    vuescroll,
   },
   data() {
     return {
