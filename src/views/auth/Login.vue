@@ -1,5 +1,7 @@
 <template>
-  <LoginForm></LoginForm>
+  <v-container class="fill-height" fluid>
+    <LoginForm></LoginForm>
+  </v-container>
 </template>
 <script>
 import LoginForm from '@/components/LoginForm.vue';
