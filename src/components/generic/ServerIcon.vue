@@ -47,5 +47,6 @@ export default {
     text-align: center;
     overflow: hidden;
     border-radius: 50%;
+    cursor: pointer;
 }
 </style>
