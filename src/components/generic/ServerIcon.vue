@@ -21,7 +21,9 @@ export default {
   },
   methods: {
     activated() {
-      this.$router.push(this.to);
+      if (this.$router.currentRoute.path !== this.to) {
+        this.$router.push(this.to);
+      }
     },
   },
 };

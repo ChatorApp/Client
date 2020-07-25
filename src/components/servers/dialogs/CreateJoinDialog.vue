@@ -1,13 +1,9 @@
 <template>
   <v-dialog v-model="dialog" persistent max-width="30%">
     <template v-slot:activator="{ on, attrs }">
-      <v-list-item v-bind="attrs" v-on="on">
-        <v-list-item-avatar>
-          <v-avatar color="indigo" style="min-width: 0px;">
-            <v-icon>mdi-server-network</v-icon>
-          </v-avatar>
-        </v-list-item-avatar>
-      </v-list-item>
+      <div class="serverIconDiv" v-bind="attrs" v-on="on">
+        <v-icon class="serverIconImage indigo">mdi-server-network</v-icon>
+      </div>
     </template>
     <v-card>
       <v-card-text>
@@ -44,3 +40,23 @@ export default {
   },
 };
 </script>
+<style scoped>
+.serverIconDiv {
+    width: 72px;
+    height: 56px;
+    background-color: black;
+    align-items: center;
+    text-align: center;
+}
+.serverIconImage {
+    height: 40px;
+    width: 40px;
+    min-width: 40px;
+    margin: 8px 0px;
+    align-items: center;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 50%;
+}
+</style>

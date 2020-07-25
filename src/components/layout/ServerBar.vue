@@ -1,11 +1,8 @@
 <template>
-    <v-col class="serverBar">
-  <vuescroll>
-      <ServerIcon
-        :to="`/dms`"
-        icon="mdi-forum"
-        backgroundColor="indigo"
-      ></ServerIcon>
+  <v-col class="serverBar">
+    <vuescroll>
+      <ServerIcon to="/dms" icon="mdi-forum" backgroundColor="indigo"></ServerIcon>
+      <v-divider></v-divider>
       <ServerIcon
         v-for="server in servers"
         :key="server.id"
@@ -14,8 +11,8 @@
       ></ServerIcon>
       <v-divider></v-divider>
       <CreateJoinDialog></CreateJoinDialog>
-  </vuescroll>
-    </v-col>
+    </vuescroll>
+  </v-col>
 </template>
 
 <script>
