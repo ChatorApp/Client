@@ -2,13 +2,8 @@
   <v-app>
     <v-row no-gutters>
       <ServerBar v-if="loggedIn"></ServerBar>
-      <ChannelPanel v-if="loggedIn"></ChannelPanel>
       <v-main>
-        <v-container :class="loggedIn ? '' : 'fill-height'" fluid>
-          <v-col>
-            <router-view></router-view>
-          </v-col>
-        </v-container>
+        <router-view></router-view>
       </v-main>
       <UserListPanel v-if="loggedIn"></UserListPanel>
     </v-row>
@@ -17,7 +12,6 @@
 
 <script>
 import ServerBar from './components/layout/ServerBar.vue';
-import ChannelPanel from './components/layout/ChannelPanel.vue';
 import UserListPanel from './components/layout/UserListPanel.vue';
 
 import api from './utils/api';
@@ -26,7 +20,6 @@ export default {
   name: 'App',
   components: {
     ServerBar,
-    ChannelPanel,
     UserListPanel,
   },
   data() {
