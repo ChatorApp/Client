@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import vuescroll from 'vuescroll';
 import App from './App.vue';
 import router from './router';
 import vuetify from './plugins/vuetify';
@@ -8,6 +9,14 @@ import '@mdi/font/css/materialdesignicons.css';
 require('dotenv').config();
 
 Vue.config.productionTip = false;
+
+Vue.use(vuescroll, {
+  ops: {
+    scrollPanel: {
+      scrollingX: false,
+    },
+  },
+});
 
 Vue.mixin({
   data() {
