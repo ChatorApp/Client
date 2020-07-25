@@ -9,6 +9,9 @@ const routes = [
     path: '/', name: 'Home', component: () => import('../views/Home.vue'),
   },
   {
+    path: '/servers/:id', name: 'Servers', component: () => import('../views/Server.vue'),
+  },
+  {
     path: '/auth/login',
     name: 'Login',
     component: () => import('../views/auth/Login.vue'),
