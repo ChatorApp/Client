@@ -1,5 +1,6 @@
 <template>
   <v-col class="channelPanel">
+    <slot></slot>
   </v-col>
 </template>
 
