@@ -46,6 +46,6 @@ export default {
 .serverBar {
   max-width: 72px;
   height: 100vh;
-  background-color: black !important;
+  background-color: var(--v-background-darken2) !important;
 }
 </style>

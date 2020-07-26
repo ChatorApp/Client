@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ServerChannelsBar :Name="server.name"></ServerChannelsBar>
+    <ServerChannelsBar :Name="server.name" :Id="server.id"></ServerChannelsBar>
   </div>
 </template>
 

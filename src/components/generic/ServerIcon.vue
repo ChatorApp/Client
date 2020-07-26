@@ -33,7 +33,7 @@ export default {
 .serverIconDiv {
     width: 72px;
     height: 56px;
-    background-color: black;
+    background-color: var(--v-background-darken2);
     align-items: center;
     text-align: center;
 }

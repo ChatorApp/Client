@@ -13,6 +13,6 @@ export default {
 .channelPanel {
   max-width: 240px;
   height: 100vh;
-  background-color: green;
+  background-color: var(--v-background-darken1);
 }
 </style>

@@ -45,13 +45,13 @@ export default {
 
 <style scoped>
 .theme--dark.v-application {
-  background-color: var(--v-background-base);
+  background-color: var(--v-background-lighten1);
 }
 .theme--dark.v-app-bar.v-toolbar.v-sheet {
-  background-color: var(--v-background-darken1);
+  background-color: var(--v-background-base);
 }
 .theme--dark.v-navigation-drawer {
-  background-color: var(--v-background-darken1);
+  background-color: var(--v-background-base);
 }
 .fill-height {
   height: 50vw;

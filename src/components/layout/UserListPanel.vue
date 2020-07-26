@@ -12,6 +12,6 @@ export default {
 .userListPanel {
   max-width: 240px;
   height: 100vh;
-  background-color: blue;
+  background-color: var(--v-background-darken1);
 }
 </style>

@@ -1,16 +1,13 @@
 <template>
   <ChannelPanel>
-    <v-list-item>
-      <v-col cols="12" sm="2" justify="center" align="center">
-        <v-icon>mdi-check-decagram</v-icon>
-      </v-col>
-      <v-col cols="12" sm="10" justify="center" align="left">{{ Name }}</v-col>
-    </v-list-item>
+    <div class="text-center">{{ Name }}</div>
     <v-divider></v-divider>
   </ChannelPanel>
 </template>
 
 <script>
+import api from '@/utils/api';
+
 import ChannelPanel from '../layout/ChannelPanel.vue';
 
 export default {
@@ -18,7 +15,16 @@ export default {
   components: {
     ChannelPanel,
   },
-  props: ['Name'],
+  props: ['Name', 'Id'],
+  data() {
+    return {
+      categories: null,
+    };
+  },
+  async mounted() {
+    const response = await api.get(`/categories/for/${this.Id}`);
+    this.categories = response.data;
+  },
 };
 </script>
 
