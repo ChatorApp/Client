@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import CreateServerDialog from './CreateServerDialog.vue';
-import JoinServerDialog from './JoinServerDialog.vue';
+import CreateServerDialog from '@/components/dialogs/server/CreateServerDialog.vue';
+import JoinServerDialog from '@/components/dialogs/server/JoinServerDialog.vue';
 
 export default {
   name: 'CreateJoinModal',
@@ -42,21 +42,21 @@ export default {
 </script>
 <style scoped>
 .serverIconDiv {
-    width: 72px;
-    height: 56px;
-    background-color: var(--v-background-darken2);
-    align-items: center;
-    text-align: center;
+  width: 72px;
+  height: 56px;
+  background-color: var(--v-background-darken2);
+  align-items: center;
+  text-align: center;
 }
 .serverIconImage {
-    height: 40px;
-    width: 40px;
-    min-width: 40px;
-    margin: 8px 0px;
-    align-items: center;
-    position: relative;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  min-width: 40px;
+  margin: 8px 0px;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  border-radius: 50%;
 }
 </style>

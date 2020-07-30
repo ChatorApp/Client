@@ -17,8 +17,8 @@
 
 <script>
 import vuescroll from 'vuescroll';
-import ServerIcon from '@/components/generic/ServerIcon.vue';
-import CreateJoinDialog from '../servers/dialogs/CreateJoinDialog.vue';
+import ServerIcon from '@/components/generic/server/ServerIcon.vue';
+import CreateJoinDialog from '@/components/dialogs/server/CreateJoinDialog.vue';
 
 const api = require('@/utils/api');
 

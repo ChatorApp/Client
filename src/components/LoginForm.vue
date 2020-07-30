@@ -1,13 +1,11 @@
 <template>
   <v-row align="center" justify="center">
     <v-col cols="12" sm="8" md="4">
-      <v-alert type="error" v-if="error !== null">
-        {{ error }}
-      </v-alert>
+      <v-alert type="error" v-if="error !== null">{{ error }}</v-alert>
       <v-card class="elevation-12">
         <v-form @submit.prevent="login">
           <v-toolbar dark flat>
-            <v-toolbar-title>Login form </v-toolbar-title>
+            <v-toolbar-title>Login form</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-text-field
@@ -37,7 +35,7 @@
   </v-row>
 </template>
 <script>
-const api = require('@/utils/api');
+import api from '@/utils/api';
 
 export default {
   name: 'LoginForm',

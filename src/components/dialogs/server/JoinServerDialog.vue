@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import Action from '../../generic/Action.vue';
+import Action from '@/components/generic/Action.vue';
 
 export default {
   name: 'CreateServerDialog',

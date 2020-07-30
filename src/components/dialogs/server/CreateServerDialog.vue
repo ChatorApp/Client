@@ -14,9 +14,6 @@
       <v-card-text>
         <v-container>
           <h1 class="text-center">Create your Chator Server</h1>
-          <h3 class="text-center">
-            Create a community for family, friends, co workers or the public!
-          </h3>
           <v-row v-if="alert.message !== null">
             <v-col cols="12" sm="12" align="center">
               <v-alert :type="alert.type">{{ alert.message }}</v-alert>
@@ -59,8 +56,8 @@
 </template>
 
 <script>
-import api from '../../../utils/api';
-import Action from '../../generic/Action.vue';
+import api from '@/utils/api';
+import Action from '@/components/generic/Action.vue';
 
 export default {
   name: 'CreateServerDialog',

@@ -16,8 +16,8 @@
 
 <script>
 import vuescroll from 'vuescroll';
-import Category from '@/components/servers/channels/Category.vue';
-import ChannelPanel from '../layout/ChannelPanel.vue';
+import Category from '@/components/generic/server/Category.vue';
+import ChannelPanel from '@/components/layout/ChannelPanel.vue';
 
 export default {
   name: 'ServerChannelsBar',

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import Channel from './Channel.vue';
+import Channel from '@/components/generic/server/Channel.vue';
 
 export default {
   name: 'Category',
