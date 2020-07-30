@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ServerChannelsBar :Name="server.name" :Id="server.id"></ServerChannelsBar>
+    <ServerChannelsBar :Name="server.name" :Categories="server.categories"></ServerChannelsBar>
   </div>
 </template>
 
@@ -16,6 +16,7 @@ export default {
       name: null,
       id: null,
       iconUrl: null,
+      categories: null,
     },
   }),
   components: {

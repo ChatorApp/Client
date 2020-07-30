@@ -18,6 +18,7 @@ export default new Vuetify({
         success: '#4CAF50',
         warning: '#FFC107',
         background: '#434C51',
+        channel: '#8e9297',
       },
     },
     dark: true,
