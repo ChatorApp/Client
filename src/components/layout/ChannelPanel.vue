@@ -14,5 +14,6 @@ export default {
   max-width: 240px;
   height: 100vh;
   background-color: var(--v-background-darken1);
+  padding: 0;
 }
 </style>
