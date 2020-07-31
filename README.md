@@ -8,4 +8,3 @@ Below is a list of tasks that need be completed to produce a MVP (Minimum Viable
 ## Client
 
 - [ ] Initialise front end and add basic UI implementation
-
