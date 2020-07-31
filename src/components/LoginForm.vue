@@ -63,7 +63,7 @@ export default {
         })
         .catch((error) => {
           if (error.response) {
-            vm.error = error.response.data.error;
+            vm.error = error.response.data.message;
           }
         });
     },
