@@ -1,4 +1,4 @@
-FROM mhart/apline-node:12.18.3 AS build-env
+FROM mhart/alpine-node:12.18.3 AS build-env
 ADD . /chator-client
 
 WORKDIR /chator-client
