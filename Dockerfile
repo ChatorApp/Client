@@ -5,8 +5,7 @@ WORKDIR /chator-client
 
 RUN yarn install --frozen-lockfile
 RUN yarn build
-ADD /chator-client/dist /chator-client-build-files
 
 FROM nginx:alpine
-COPY --from=build-env /chator-client-build-files /usr/share/nginx/html
+COPY --from=build-env /chator-client/dist /usr/share/nginx/html
 
