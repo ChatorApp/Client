@@ -42,7 +42,7 @@ export default {
   border-bottom: 1px solid var(--v-background-darken2);
   padding: 0 16px;
   overflow: hidden;
-  width: 240px;
+  max-width: 240px;
 }
 .serverHeaderText {
   width: 100%;
