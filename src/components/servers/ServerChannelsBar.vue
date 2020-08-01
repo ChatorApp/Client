@@ -1,7 +1,9 @@
 <template>
   <ChannelPanel>
     <vuescroll>
-      <div class="serverHeader text-center">{{ Name }}</div>
+      <div class="serverHeader">
+        <span class="serverHeaderText">{{ Name }}</span>
+      </div>
       <div class="serverChannels">
         <Category
           v-for="category in Categories"
@@ -39,6 +41,14 @@ export default {
   margin: auto;
   border-bottom: 1px solid var(--v-background-darken2);
   padding: 0 16px;
+  overflow: hidden;
+  width: 240px;
+}
+.serverHeaderText {
+  width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre;
 }
 .serverChannels {
   padding: 16px;
