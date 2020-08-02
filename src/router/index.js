@@ -6,10 +6,19 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/', name: 'Home', component: () => import('../views/Home.vue'),
+    path: '/',
+    name: 'Home',
+    component: () => import('../views/Home.vue'),
   },
   {
-    path: '/servers/:id', name: 'Servers', component: () => import('../views/Server.vue'),
+    path: '/channels/:serverId/:channelId',
+    name: 'Servers',
+    component: () => import('../views/ServerChannel.vue'),
+  },
+  {
+    path: '/servers/:id',
+    name: 'ServerRedirect',
+    component: () => import('../views/ServerRedirect.vue'),
   },
   {
     path: '/auth/login',

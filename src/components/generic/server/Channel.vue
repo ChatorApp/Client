@@ -1,5 +1,5 @@
 <template>
-  <div class="channelItem" @click="openChannel"># {{ Channel.name }}</div>
+  <div :style="channelItemStyle" @click="openChannel"># {{ Channel.name }}</div>
 </template>
 
 <script>
@@ -7,26 +7,27 @@ export default {
   name: 'Channel',
   props: {
     Channel: null,
+    ActiveChannel: null,
   },
   methods: {
     openChannel() {
-      if (this.$router.currentRoute.path !== `/channels/${this.Channel.id}`) {
-        this.$router.push(`/channels/${this.Channel.id}`);
+      if (
+        this.$router.currentRoute.path !== `/channels/${this.Channel.server}/${this.Channel.id}`
+      ) {
+        this.$router.push(`/channels/${this.Channel.server}/${this.Channel.id}`);
       }
+    },
+  },
+  computed: {
+    channelItemStyle() {
+      return {
+        height: '32px',
+        padding: '2.5px 5px',
+        color: `var(--v-channel-${this.ActiveChannel ? 'lighten3' : 'base'})`,
+        'background-color': `var(--v-background-${this.ActiveChannel ? 'base' : 'darken1'})`,
+        'border-radius': '4px',
+      };
     },
   },
 };
 </script>
-
-<style scoped>
-.channelItem {
-  height: 32px;
-  padding: 2.5px 0;
-  color: var(--v-channel-base);
-  border-radius: 4px;
-}
-.channelItem:hover {
-  color: var(--v-channel-lighten2);
-  background-color: var(--v-background-base);
-}
-</style>

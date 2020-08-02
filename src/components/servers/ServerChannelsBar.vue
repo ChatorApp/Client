@@ -10,6 +10,7 @@
           :key="category.id"
           :Name="category.name"
           :Channels="category.channels"
+          :SelectedChannel="SelectedChannel"
         ></Category>
       </div>
     </vuescroll>
@@ -28,7 +29,7 @@ export default {
     Category,
     vuescroll,
   },
-  props: ['Name', 'Categories'],
+  props: ['Name', 'Categories', 'SelectedChannel'],
 };
 </script>
 

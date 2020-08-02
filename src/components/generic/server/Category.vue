@@ -1,7 +1,12 @@
 <template>
   <div class="category">
     <div class="categoryName">{{ Name }}</div>
-    <Channel v-for="channel in Channels" :key="channel.id" :Channel="channel"></Channel>
+    <Channel
+      v-for="channel in Channels"
+      :key="channel.id"
+      :Channel="channel"
+      :ActiveChannel="SelectedChannel === channel.id"
+    ></Channel>
   </div>
 </template>
 
@@ -16,6 +21,7 @@ export default {
   props: {
     Name: null,
     Channels: null,
+    SelectedChannel: null,
   },
 };
 </script>
